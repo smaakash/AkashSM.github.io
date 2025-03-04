@@ -1,3 +1,45 @@
-title: Akash S M 
-theme: jekyll-theme-basically-basic
+title: "Akash SM"
+#description: "A custom theme for Jekyll"
+#baseurl: ""  # Set this if your site is in a subdirectory (e.g., "/blog")
+#url: "https://your-site.com"  # The base URL of your site
+
+# Theme settings
+theme: my-jekyll-theme  # If using a local theme as a Gem
+
+# Build settings
+permalink: pretty  # Makes URLs cleaner
+paginate: 5  # If using pagination (requires jekyll-paginate plugin)
+
+# Plugins (if needed)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate  # Required for pagination
+
+# Defaults for posts/pages
+defaults:
+  - scope:
+      path: ""  # Applies to all files
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+
+# Collections (optional)
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Navigation Links (optional)
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Blog"
+    url: "/blog"
+  - title: "Projects"
+    url: "/projects"
+  - title: "About"
+    url: "/about"
 
