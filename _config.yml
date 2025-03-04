@@ -3,7 +3,7 @@ title: "Akash SM"
 #baseurl: ""  # Set this if your site is in a subdirectory (e.g., "/blog")
 #url: "https://your-site.com"  # The base URL of your site
 
-theme: jekyll-theme-minimal
+theme: jekyll-theme-chirpy
 
 # Build settings
 permalink: pretty  # Makes URLs cleaner
