@@ -1,6 +1,6 @@
-# AkashSM.github.io
+# Robotics
 
-# Akash 
 - Work
 - Life
-- 
+
+
