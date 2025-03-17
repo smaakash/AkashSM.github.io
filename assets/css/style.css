@@ -1381,7 +1381,6 @@ textarea.input-field {
   }
 } 
 
-
 /* Projects Grid */
 .projects-grid {
   display: grid;
@@ -1394,6 +1393,7 @@ textarea.input-field {
 
 /* Project Card */
 .project-card {
+  position: relative; /* required for overlay */
   background: var(--bg-secondary);
   border-radius: 15px;
   box-shadow: var(--shadow-1);
@@ -1402,7 +1402,7 @@ textarea.input-field {
 }
 
 .project-card:hover {
-  transform: translateY(-10px) translateX(0px);
+  transform: translateY(-10px);
   box-shadow: 0 12px 24px rgba(21, 0, 255, 0.15);
 }
 
@@ -1424,10 +1424,25 @@ textarea.input-field {
 /* Project Links */
 .project-links {
   display: flex;
-  justify-content: space-between;
-  padding: 0 20px 20px;
+  justify-content: flex-start;
+  padding: 10px 20px 20px;
+  position: relative;
+  z-index: 10;
 }
 
+.project-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--color-primary);
+  background-color: var(--bg-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
 .project-links a {
   display: inline-block;
   padding: 10px 20px;
@@ -1436,11 +1451,28 @@ textarea.input-field {
   text-decoration: none;
   border-radius: 8px;
   box-shadow: var(--shadow-1);
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .project-links a:hover {
   background-color: var(--input-bg);
+  transform: translateY(-3px);
+}
+
+.project-links a::after {
+  content: "🤖";
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.3s, right 0.3s;
+}
+
+.project-links a:hover::after {
+  opacity: 1;
+  right: 10px;
 }
 
 /* Overlay that appears on hover */
@@ -1450,21 +1482,23 @@ textarea.input-field {
   left: 0;
   width: 100%;
   height: 100%;
-  color: #000000;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0; /* hidden by default */
+  opacity: 0;
   transition: opacity 0.3s ease;
   font-size: 1.2rem;
   text-align: center;
-  pointer-events: none; /* optional: so it doesn't block clicks */
+  pointer-events: none;
+  border-radius: 15px;
 }
 
-/* Show the overlay when you hover on the project card image */
 .project-card:hover .image-overlay {
   opacity: 1;
 }
+
 
 /* Road map */
 .roadmap-section {
@@ -1521,4 +1555,21 @@ textarea.input-field {
   margin-top: 10px;
   color: var(--color-secondary);
   font-size: 0.9rem;
+}
+
+.project-video-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.project-video-section h2 {
+  margin-bottom: 20px;
+  color: var(--color-primary);
+}
+
+video {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
