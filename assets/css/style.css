@@ -1337,3 +1337,188 @@ textarea.input-field {
   .about-banner { max-width: 450px; }
 
 }
+
+.train-container {
+  width: 100%;
+  overflow: hidden;
+  background: #e0f7fa;
+  height: 150px;
+  position: relative;
+}
+
+.train-track {
+  display: flex;
+  width: max-content;
+  animation: moveTrain 8s linear infinite;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  height: 150px;
+  font-size: 80px;
+  margin-right: 20px;
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep the icon color */
+  background: #fff;      /* optional background for slides */
+  border-radius: 10px;   /* optional rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* optional shadow */
+  transition: transform 2 s ease; /* hover effect */
+}
+
+.slide:hover {
+  transform: scale(4); /* scale up on hover */
+}
+
+@keyframes moveTrain {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+} 
+
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Project Card */
+.project-card {
+  background: var(--bg-secondary);
+  border-radius: 15px;
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) translateX(0px);
+  box-shadow: 0 12px 24px rgba(21, 0, 255, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  padding: 15px 20px 0;
+}
+
+.project-card p {
+  padding: 2px 20px 20px;
+  color: var(--color-secondary);
+}
+
+/* Project Links */
+.project-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 20px;
+}
+
+.project-links a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--color-primary);
+  background-color: var(--bg-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: var(--shadow-1);
+  transition: background-color 0.3s ease;
+}
+
+.project-links a:hover {
+  background-color: var(--input-bg);
+}
+
+/* Overlay that appears on hover */
+.project-card .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s ease;
+  font-size: 1.2rem;
+  text-align: center;
+  pointer-events: none; /* optional: so it doesn't block clicks */
+}
+
+/* Show the overlay when you hover on the project card image */
+.project-card:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Road map */
+.roadmap-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.roadmap {
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+
+.roadmap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-secondary);
+  transform: translateX(-50%);
+}
+
+.roadmap-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.roadmap-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.roadmap-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.roadmap-content {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-1);
+  position: relative;
+}
+
+.roadmap-date {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+}
